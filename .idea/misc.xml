@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/bg_pin.xml" value="0.164" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/button_cancel.xml" value="0.164" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/button_disable.xml" value="0.1515" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/button_primary.xml" value="0.1515" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_border.xml" value="0.2145" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_gradient.xml" value="0.164" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_grey.xml" value="0.164" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_image_action.xml" value="0.164" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/shadow_main.xml" value="0.2585" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/action_list.xml" value="0.253125" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_action.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_new_visitor_camera.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_reset_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_splash.xml" value="0.22407407407407406" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/confirmation_dialog.xml" value="0.253125" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_forget_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_home.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_pin_code_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_reset_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/history_item.xml" value="0.253125" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/progress_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/setting_home.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

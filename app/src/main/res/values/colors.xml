@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF6200EE</color>
+    <color name="teal_700">#FF6200EE</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#29ABE2</color>
+    <color name="inactive">#BBABE1</color>
+    <color name="grey">@color/light_color</color>
+    <color name="secondary">#B1B1B1</color>
+
+    <color name="save">#1798E8</color>
+    <color name="line_color">#CECECE</color>
+
+
+    <color name="primary_dark">#0E668C</color>
+    <color name="grey_light">#EFEFEF</color>
+    <color name="grey_dark">#676767</color>
+    <color name="primaryLight">#A195A5FF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="dark_text">#242424</color>
+    <color name="dark_text_50">#80242424</color>
+    <color name="dark_text_70">#B3242424</color>
+    <color name="dark_text_5">#0D242424</color>
+    <color name="dark_text_30">#4D242424</color>
+    <color name="light_color">#8E8E8E</color>
+    <color name="update_color">#3AB4FF</color>
+    <color name="stroke_grey_color">#9E9E9E</color>
+    <color name="red">#A20000</color>
+    <color name="transferd">#1EC804</color>
+    <color name="green">#1EC804</color>
+    <color name="orange">#FF5722</color>
+
+
+
+    <color name="payment_sdk_primary_color">#5C13DF</color>
+    <color name="payment_sdk_secondary_color">#F9FAFD</color>
+    <color name="payment_sdk_primary_font_color">#111112</color>
+    <color name="payment_sdk_secondary_font_color">#6D6C70</color>
+    <color name="payment_sdk_separators_color">#F9FAFD</color>
+    <color name="payment_sdk_stroke_color">#201F1F</color>
+    <color name="payment_sdk_button_text_color">#F9FAFD</color>
+    <color name="payment_sdk_title_text_color">#111112</color>
+    <color name="payment_sdk_button_background_color">#7958C3</color>
+    <color name="payment_sdk_background_color">#F9FAFD</color>
+    <color name="payment_sdk_card_background_color">#F9FAFD</color>
+    <color name="payment_sdk_status_bar_color">#F9FAFD</color>
+    <color name="payment_sdk_back_button_color">#5C13DF</color>
+    <color name="cap_primary">#4D358E</color>
+    <color name="cap_content_secondary">#545454</color>
+
+
+</resources>
