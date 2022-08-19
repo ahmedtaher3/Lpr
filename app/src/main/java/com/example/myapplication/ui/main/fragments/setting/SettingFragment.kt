@@ -1,59 +1,51 @@
-package com.example.myapplication.ui.auth.resetPassword
+package com.example.myapplication.ui.main.fragments.setting
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.base.BaseResponse
-import com.example.myapplication.databinding.FragmentResetPasswordBinding
-import com.example.myapplication.ui.auth.AuthViewModel
+import com.example.myapplication.data.shared.DataManager
+import com.example.myapplication.databinding.FragmentSettingBinding
 import com.example.myapplication.ui.auth.LoginActivity
+import com.example.myapplication.ui.main.MainActivity
 import com.example.myapplication.util.Status
 import com.example.myapplication.util.extensions.observe
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class ResetPasswordFragment(private val code: String) :
-    BaseFragment<FragmentResetPasswordBinding>() {
+class SettingFragment : BaseFragment<FragmentSettingBinding>() {
+    lateinit var binding: FragmentSettingBinding
+    val viewModel: SettingViewModel by viewModels()
 
-    lateinit var binding: FragmentResetPasswordBinding
-    val viewModel: AuthViewModel by activityViewModels()
-
+    @Inject
+    lateinit var dataManager: DataManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.title.postValue("Reset Password")
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = viewDataBinding!!
-        binding.reset.setOnClickListener {
-            if (binding.password.text.toString().isNullOrEmpty()) {
-                baseActivity.showWarningSnackbar("password not valid")
-                return@setOnClickListener
-            }
 
-            if (binding.password.text.toString() != binding.confirmPassword.text.toString()) {
-                baseActivity.showWarningSnackbar("password not valid")
-                return@setOnClickListener
-            }
+        binding.name.text = dataManager.user?.user?.fullName
+        binding.logOut.setOnClickListener {
 
-            viewModel.resetPassword(
-                code,
-                binding.password.text.toString(),
-                binding.confirmPassword.text.toString()
-            )
+            viewModel.logout()
+
         }
-
         setState()
 
     }
 
     private fun setState() {
-        observe(viewModel.resetPasswordState)
+
+        observe(viewModel.logoutState)
         {
 
             when (it) {
@@ -65,13 +57,13 @@ class ResetPasswordFragment(private val code: String) :
                     baseActivity.showWarningSnackbar(it.message!!)
                 }
                 is Status.Success<*> -> {
+
                     val response = it.data as BaseResponse<BaseResponse.Data>
-
-
-                    baseActivity.hideDialogLoading()
-                    baseActivity.showToast(response.message!!)
-                    baseActivity.finish()
-
+                    dataManager.saveIsLogin(false)
+                    showToast(response.message)
+                    val intent = Intent(baseActivity, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    baseActivity.startActivity(intent)
 
                 }
                 is Status.Unauthorized ->{
@@ -84,7 +76,7 @@ class ResetPasswordFragment(private val code: String) :
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_reset_password
+        return R.layout.fragment_setting
     }
 
 }

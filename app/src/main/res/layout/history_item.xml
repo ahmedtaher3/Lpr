@@ -1,489 +1,396 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="5dp"
-    android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="#EEF8FC"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="5dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="15dp">
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@color/primary"
-            app:layout_constraintEnd_toStartOf="@+id/name"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Ahmed Taher"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toBottomOf="@+id/nameHint" />
-
-        <TextView
-            android:id="@+id/nameHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/driver_name"
-            app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintStart_toStartOf="@+id/name"
-            app:layout_constraintTop_toTopOf="@+id/image"
-            app:layout_constraintVertical_chainStyle="packed" />
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="#EEF8FC"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:padding="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/image">
+            android:layout_height="match_parent"
+            android:paddingTop="15dp">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/typeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profile"
+                app:layout_constraintEnd_toStartOf="@+id/name"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/typeImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/type"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/typeHint" />
-
-                <TextView
-                    android:id="@+id/type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="Visitor"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/typeImage"
-                    app:layout_constraintTop_toBottomOf="@+id/typeHint" />
-
-                <TextView
-                    android:id="@+id/typeHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/driver_type"
-                    app:layout_constraintStart_toStartOf="@+id/type"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/permissionLayout"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/typeLayout"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/permissionImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/permission"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/permissionHint" />
-
-                <TextView
-                    android:id="@+id/permission"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="No Permission"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/permissionImage"
-                    app:layout_constraintTop_toBottomOf="@+id/permissionHint" />
-
-                <TextView
-                    android:id="@+id/permissionHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/entry_permit"
-                    app:layout_constraintStart_toStartOf="@+id/permission"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/carPlateLayout"
+            <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeLayout">
-
-                <ImageView
-                    android:id="@+id/carPlateImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/carPlate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/carPlateHint" />
-
-                <TextView
-                    android:id="@+id/carPlate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="A P C 1 2 4"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/carPlateImage"
-                    app:layout_constraintTop_toBottomOf="@+id/carPlateHint" />
-
-                <TextView
-                    android:id="@+id/carPlateHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/car_plate"
-                    app:layout_constraintStart_toStartOf="@+id/carPlate"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/carBrandLayout"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
+                android:text="Ahmed Taher"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/carPlateLayout"
-                app:layout_constraintTop_toBottomOf="@+id/typeLayout">
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/nameHint" />
 
-                <ImageView
-                    android:id="@+id/carBrandImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/carBrand"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/carBrandHint" />
-
-                <TextView
-                    android:id="@+id/carBrand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="07/02/2020"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/carBrandImage"
-                    app:layout_constraintTop_toBottomOf="@+id/carBrandHint" />
-
-                <TextView
-                    android:id="@+id/carBrandHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/car_brand"
-                    app:layout_constraintStart_toStartOf="@+id/carBrand"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/carColorLayout"
+            <TextView
+                android:id="@+id/nameHint"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
-
-                <ImageView
-                    android:id="@+id/carColorImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/carColor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/carColorHint" />
-
-                <TextView
-                    android:id="@+id/carColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="Red"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/carColorImage"
-                    app:layout_constraintTop_toBottomOf="@+id/carColorHint" />
-
-                <TextView
-                    android:id="@+id/carColorHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/car_color"
-                    app:layout_constraintStart_toStartOf="@+id/carColor"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+                android:layout_height="wrap_content"
+                android:text="@string/driver_name"
+                app:layout_constraintBottom_toTopOf="@+id/name"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toTopOf="@+id/image"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lastEntryLayout"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/carColorLayout"
-                app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
-
-                <ImageView
-                    android:id="@+id/lastEntryImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/lastEntry"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/lastEntryHint" />
-
-                <TextView
-                    android:id="@+id/lastEntry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="07/02/2020"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/lastEntryImage"
-                    app:layout_constraintTop_toBottomOf="@+id/lastEntryHint" />
-
-                <TextView
-                    android:id="@+id/lastEntryHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/last_entry"
-                    app:layout_constraintStart_toStartOf="@+id/lastEntry"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/actionsLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_gradient"
-                android:paddingStart="10dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/carColorLayout">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:padding="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/image">
 
 
-                <TextView
-                    android:id="@+id/actions"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/typeLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:text="@string/actions"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <ImageView
+                        android:id="@+id/typeImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_account"
+                        app:layout_constraintBottom_toBottomOf="@+id/type"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/typeHint" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Visitor"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/typeImage"
+                        app:layout_constraintTop_toBottomOf="@+id/typeHint" />
 
+                    <TextView
+                        android:id="@+id/typeHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/driver_type"
+                        app:layout_constraintStart_toStartOf="@+id/type"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/actionsNotesLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/actionsAlertLayout"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/actionsLayout">
-
-
-                <TextView
-                    android:id="@+id/actionsNote"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:text="Notes"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsNoteCount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/actionsNoteHint" />
-
-                <TextView
-                    android:id="@+id/actionsNoteHint"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/permissionLayout"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/action"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsNoteCount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/actionsNoteCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10"
-                    android:textColor="@color/primary"
-                    android:textSize="22dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/typeLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/permissionImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_permission_grant"
+                        app:layout_constraintBottom_toBottomOf="@+id/permission"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/permissionHint" />
+
+                    <TextView
+                        android:id="@+id/permission"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="No Permission"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/permissionImage"
+                        app:layout_constraintTop_toBottomOf="@+id/permissionHint" />
+
+                    <TextView
+                        android:id="@+id/permissionHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/entry_permit"
+                        app:layout_constraintStart_toStartOf="@+id/permission"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/actionsAlertLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/actionsViolationsLayout"
-                app:layout_constraintStart_toEndOf="@+id/actionsNotesLayout"
-                app:layout_constraintTop_toBottomOf="@+id/actionsLayout">
-
-
-                <TextView
-                    android:id="@+id/actionsAlert"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/carPlateLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:text="Alerts"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsAlertCount"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/actionsAlertHint" />
+                    app:layout_constraintTop_toBottomOf="@+id/typeLayout">
 
-                <TextView
-                    android:id="@+id/actionsAlertHint"
+                    <ImageView
+                        android:id="@+id/carPlateImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_license_plate"
+                        app:layout_constraintBottom_toBottomOf="@+id/carPlate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/carPlateHint" />
+
+                    <TextView
+                        android:id="@+id/carPlate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="A P C 1 2 4"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/carPlateImage"
+                        app:layout_constraintTop_toBottomOf="@+id/carPlateHint" />
+
+                    <TextView
+                        android:id="@+id/carPlateHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/car_plate"
+                        app:layout_constraintStart_toStartOf="@+id/carPlate"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/carBrandLayout"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/action"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsAlertCount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/actionsAlertCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10"
-                    android:textColor="@color/primary"
-                    android:textSize="22dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/carPlateLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/typeLayout">
 
+                    <ImageView
+                        android:id="@+id/carBrandImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_car_brand"
+                        app:layout_constraintBottom_toBottomOf="@+id/carBrand"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/carBrandHint" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/carBrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="07/02/2020"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/carBrandImage"
+                        app:layout_constraintTop_toBottomOf="@+id/carBrandHint" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/actionsViolationsLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/actionsAlertLayout"
-                app:layout_constraintTop_toBottomOf="@+id/actionsLayout">
+                    <TextView
+                        android:id="@+id/carBrandHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/car_brand"
+                        app:layout_constraintStart_toStartOf="@+id/carBrand"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <TextView
-                    android:id="@+id/actionsViolation"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/carColorLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:text="violations"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsViolationCount"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/actionsViolationHint" />
+                    app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
 
-                <TextView
-                    android:id="@+id/actionsViolationHint"
+                    <ImageView
+                        android:id="@+id/carColorImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_last_entry"
+                        app:layout_constraintBottom_toBottomOf="@+id/carDesc"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/carColorHint" />
+
+                    <TextView
+                        android:id="@+id/carDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Car Description"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/carColorImage"
+                        app:layout_constraintTop_toBottomOf="@+id/carColorHint" />
+
+                    <TextView
+                        android:id="@+id/carColorHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/car_description"
+                        app:layout_constraintStart_toStartOf="@+id/carDesc"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lastEntryLayout"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/action"
-                    app:layout_constraintEnd_toStartOf="@+id/actionsViolationCount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/actionsViolationCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10"
-                    android:textColor="@color/primary"
-                    android:textSize="22dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/carColorLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
+
+                    <ImageView
+                        android:id="@+id/lastEntryImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_last_entry"
+                        app:layout_constraintBottom_toBottomOf="@+id/lastEntry"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lastEntryHint" />
+
+                    <TextView
+                        android:id="@+id/lastEntry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="07/02/2020"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/lastEntryImage"
+                        app:layout_constraintTop_toBottomOf="@+id/lastEntryHint" />
+
+                    <TextView
+                        android:id="@+id/lastEntryHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_entry"
+                        app:layout_constraintStart_toStartOf="@+id/lastEntry"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/actionsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_gradient"
+                    android:paddingStart="10dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carColorLayout">
+
+
+                    <TextView
+                        android:id="@+id/actionHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="@string/action"
+                        app:layout_constraintBottom_toTopOf="@+id/action"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="@string/action"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actionHint" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/actionsNotesLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_grey"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/actionsLayout">
+
+
+                    <TextView
+                        android:id="@+id/actionsNote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="Notes"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actionsNoteHint" />
+
+                    <TextView
+                        android:id="@+id/actionsNoteHint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/note"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>
 

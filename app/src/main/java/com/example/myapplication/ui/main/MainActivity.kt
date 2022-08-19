@@ -11,8 +11,8 @@ import androidx.fragment.app.FragmentManager
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.ui.main.fragments.HomeFragment
-import com.example.myapplication.ui.main.fragments.SettingFragment
+import com.example.myapplication.ui.main.fragments.history.HomeFragment
+import com.example.myapplication.ui.main.fragments.setting.SettingFragment
 import com.example.myapplication.ui.main.newVisitor.NewVisitorCameraActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -134,5 +134,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
         currentTextView.setTextColor(ContextCompat.getColor(this, R.color.grey));
 
 
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 1) {
+            finish()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

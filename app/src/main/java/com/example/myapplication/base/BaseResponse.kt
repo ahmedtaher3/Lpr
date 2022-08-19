@@ -33,9 +33,12 @@ data class BaseResponse<T>(
     ) {
     val isSuccessResponse: Boolean
         get() {
-
             return status.ifNullOrZero() in 200..300
         }
+
+val ifUnAuth : Boolean get() {
+        return status == 403
+    }
 
     val messageResponse: String
         get() {
@@ -44,7 +47,7 @@ data class BaseResponse<T>(
             }
         }
 
-    data class Data(val message: String = "")
+    data class Data(val text: String = "")
 
 
 }

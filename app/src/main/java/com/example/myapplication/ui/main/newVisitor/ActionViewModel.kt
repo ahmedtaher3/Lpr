@@ -1,12 +1,12 @@
 package com.example.myapplication.ui.main.newVisitor
 
 
-import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.util.SingleLiveEvent
 import com.example.myapplication.util.Status
-import com.google.gson.JsonObject
+import com.example.myapplication.util.extensions.getImageFilePart
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,17 +16,37 @@ class ActionViewModel @Inject constructor(
 
 
     val scanCarState = SingleLiveEvent<Status>()
-    fun scanCar(base64Object: JsonObject) {
+    fun scanCar(file: File) {
         performNetworkCall({
-            repository.getScanCarApi(base64Object)
+            repository.getScanCarApi(file.getImageFilePart("image"))
         }, scanCarState)
+    }
+
+    val confirmCarState = SingleLiveEvent<Status>()
+    fun confirmCar(plate_en: String , plate_ar: String) {
+        performNetworkCall({
+            val parms: MutableMap<String, String> = HashMap()
+            parms["plate_en"] = plate_en
+            parms["plate_ar"] = plate_ar
+            repository.getConfirmCarApi(parms)
+        }, confirmCarState)
+    }
+
+
+    val scanQrState = SingleLiveEvent<Status>()
+    fun scanQr(text: String) {
+        performNetworkCall({
+            val parms: MutableMap<String, String> = HashMap()
+            parms["qr_code"] = text
+            repository.getScanQrApi(parms)
+        }, scanQrState)
     }
 
 
     val sendActionState = SingleLiveEvent<Status>()
-    fun sendAction(car_request_id: String , status_action: String , note: String) {
+    fun sendAction(car_request_id: String, status_action: String, note: String) {
         val parms: MutableMap<String, String> = HashMap()
-        parms["car_request_id"] = car_request_id
+        parms["history_id"] = car_request_id
         parms["status_action"] = status_action
         parms["note"] = note
         performNetworkCall({

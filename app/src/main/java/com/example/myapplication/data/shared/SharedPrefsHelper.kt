@@ -30,12 +30,23 @@ class SharedPrefsHelper(context: Context?) {
     ////////////////////////////////////////////////////////////////////////////////
 
 
+    fun putUser(b: String) {
+        mSharedPreferences!!.edit().putString(USER  , b).apply()
+    }
+
+    val user: String?
+        get() =  mSharedPreferences!!.getString(USER, "")
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+
 
     companion object {
 
         const val MY_PREFS = "MyApplication_PREFS"
         const val Token = "Token"
         const val IS_LOGGED = "IS_LOGGED"
+        const val USER = "USER ="
     }
 
     init {

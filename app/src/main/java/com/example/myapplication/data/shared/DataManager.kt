@@ -1,5 +1,8 @@
 package com.example.myapplication.data.shared
 
+import com.example.myapplication.model.UserData
+import com.example.myapplication.util.extensions.toObjectFromJson
+
 class DataManager(var mSharedPrefsHelper: SharedPrefsHelper) {
     fun clear() {
 
@@ -12,7 +15,7 @@ class DataManager(var mSharedPrefsHelper: SharedPrefsHelper) {
     ////////////////////////////////////////////////////////////////////////////////
 
     fun saveToken(x: String) {
-        mSharedPrefsHelper.putToken(x)
+        mSharedPrefsHelper.putToken("bearer $x")
     }
 
     val token: String get() = mSharedPrefsHelper.token!!
@@ -33,6 +36,15 @@ class DataManager(var mSharedPrefsHelper: SharedPrefsHelper) {
     ////////////////////////////////////////////////////////////////////////////////
 
 
+    fun saveUser(b: String) {
+        mSharedPrefsHelper.putUser(b)
+    }
+
+    val user: UserData?
+        get() = mSharedPrefsHelper.user.toObjectFromJson<UserData>(UserData::class.java)
+
+
+    ////////////////////////////////////////////////////////////////////////////////
 
 
 

@@ -28,7 +28,7 @@
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>
     <string name="checkout">Checkout</string>
-    <string name="confirm_action_dialog_title">Confirm the clarity\nof the license plate</string>
+    <string name="confirm_action_dialog_title">Confirm the Action</string>
     <string name="confirm_action_dialog_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad</string>
     <string name="reshoot">Reshoot</string>
     <string name="done">Done</string>
@@ -36,6 +36,11 @@
 
     <string name="confirm_image_dialog_title">Confirm the clarity\nof the license plate</string>
     <string name="confirm_image_dialog_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad</string>
+    <string name="car_description">Car Description</string>
+    <string name="logout">Logout</string>
+    <string name="user_name">User Name</string>
+    <string name="scan_by_camera">Scan By Camera</string>
+    <string name="scan_qr_code">Scan QR Code</string>
 
 
 </resources>

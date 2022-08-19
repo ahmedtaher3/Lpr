@@ -250,17 +250,17 @@
                     android:id="@+id/carColorImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_car_color"
-                    app:layout_constraintBottom_toBottomOf="@+id/carColor"
+                    android:src="@drawable/ic_last_entry"
+                    app:layout_constraintBottom_toBottomOf="@+id/carDesc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/carColorHint" />
 
                 <TextView
-                    android:id="@+id/carColor"
+                    android:id="@+id/carDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Red"
+                    android:text="Car Description"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     app:layout_constraintStart_toEndOf="@+id/carColorImage"
@@ -270,8 +270,8 @@
                     android:id="@+id/carColorHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/car_color"
-                    app:layout_constraintStart_toStartOf="@+id/carColor"
+                    android:text="@string/car_description"
+                    app:layout_constraintStart_toStartOf="@+id/carDesc"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -352,7 +352,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="15dp"
-                    android:text="@string/checkin"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -7,6 +7,7 @@ import com.example.myapplication.base.BaseResponse
 import com.example.myapplication.data.retrofit.ApiServices
 import com.example.myapplication.data.shared.DataManager
 import com.example.myapplication.model.ProfileData
+import com.example.myapplication.model.UserData
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class AuthRepository @Inject constructor(
     suspend fun getLoginApi(pStringMap: MutableMap<String, String>): Response<BaseResponse<BaseResponse.Data>> =
         api.login(pStringMap)
 
-    suspend fun getProfileApi(): Response<BaseResponse<ProfileData>> =
+    suspend fun getProfileApi(): Response<BaseResponse<UserData>> =
         api.getProfile(dataManager.token)
 
 

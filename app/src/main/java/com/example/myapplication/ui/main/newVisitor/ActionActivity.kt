@@ -10,25 +10,62 @@ import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
+import com.example.myapplication.base.BaseResponse
 import com.example.myapplication.databinding.ActivityActionBinding
 import com.example.myapplication.model.ScanCarData
+import com.example.myapplication.ui.auth.LoginActivity
+import com.example.myapplication.ui.main.MainActivity
+import com.example.myapplication.util.Status
+import com.example.myapplication.util.extensions.hide
+import com.example.myapplication.util.extensions.observe
+import dagger.hilt.android.AndroidEntryPoint
 
-class ActionActivity(private val model: ScanCarData) : BaseActivity<ActivityActionBinding>() {
+@AndroidEntryPoint
+class ActionActivity : BaseActivity<ActivityActionBinding>() {
 
     lateinit var binding: ActivityActionBinding
     val viewModel: ActionViewModel by viewModels()
-    var action = "checkin"
-
+    var action = ""
+    var model: ScanCarData? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = viewDataBinding!!
 
+        model = intent.getParcelableExtra("DRIVER_DATA")
+
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.name.text = model?.driverName
+        binding.carBrand.text = model?.carBrand
+        binding.carPlate.text = model?.carPlateAr
+        binding.type.text = model?.driverType
+        binding.permission.text = model?.historyStatus
+
+        if (model?.historyStatus == "refused")
+        {
+            binding.send.setBackgroundResource(R.drawable.button_disable)
+            binding.send.isEnabled = false
+            binding.permissionImage.setImageResource(R.drawable.ic_permission_denied)
+        }
+        else
+        {
+            binding.permissionImage.setImageResource(R.drawable.ic_permission_grant)
+
+        }
 
 
-        binding.name.text = model.driverName
-        binding.carBrand.text = model.carBrand
-        binding.carPlate.text = model.carPlateAr
-        binding.type.text = model.driverType
+        if (model?.statusAction == "checkout")
+        {
+
+            binding.lastEntry.text = model?.checkoutDate?.take(10)
+        }
+        else  if (model?.statusAction == "checkin")
+        {
+            binding.lastEntry.text = model?.checkinDate?.take(10)
+        }
+
 
         binding.actionsLayout.setOnClickListener {
 
@@ -45,14 +82,33 @@ class ActionActivity(private val model: ScanCarData) : BaseActivity<ActivityActi
             val alertDialog = dialogBuilder.create()
 
 
+            if (model?.statusAction == "refused")
+            {
+                checkin.hide()
+                checkout.hide()
+            }
+            else if (model?.statusAction == "checkin")
+            {
+                checkin.hide()
+            }
+            else if (model?.statusAction == "checkout")
+            {
+                checkout.hide()
+            }
+
+
+
             checkin.setOnClickListener(View.OnClickListener {
                 action = "checkin"
+                binding.action.text = action
                 alertDialog.dismiss()
 
             })
 
             checkout.setOnClickListener(View.OnClickListener {
                 action = "checkout"
+                binding.action.text = action
+
                 alertDialog.dismiss()
 
             })
@@ -90,7 +146,7 @@ class ActionActivity(private val model: ScanCarData) : BaseActivity<ActivityActi
 
                 alertDialog.dismiss()
                 viewModel.sendAction(
-                    model.carRequestId.toString(),
+                    model?.historyId.toString(),
                     action,
                     binding.notes.text.toString()
                 )
@@ -110,8 +166,41 @@ class ActionActivity(private val model: ScanCarData) : BaseActivity<ActivityActi
 
         }
 
-
+        setState()
     }
+
+    private fun setState() {
+
+        observe(viewModel.sendActionState)
+        {
+
+            when (it) {
+                is Status.Loading -> {
+                    showDialogLoading()
+                }
+                is Status.Error -> {
+                    hideDialogLoading()
+                    showWarningSnackbar(it.message!!)
+                }
+                is Status.Success<*> -> {
+                    hideDialogLoading()
+                    val response = it.data as BaseResponse<BaseResponse.Data>
+                    showToast(response.message)
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+
+
+                }
+                is Status.Unauthorized ->{
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
+            }
+        }
+    }
+
 
     override fun getLayoutId(): Int {
         return R.layout.activity_action

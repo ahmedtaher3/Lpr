@@ -30,6 +30,9 @@
         <activity android:name=".ui.auth.LoginActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.main.newVisitor.NewVisitorCameraActivity" />
+        <activity android:name=".ui.main.newVisitor.ActionActivity" />
+        <activity android:name=".ui.auth.resetPassword.ResetPasswordActivity" />
+        <activity android:name=".ui.main.newVisitor.QRCodeActivity" />
     </application>
 
 </manifest>

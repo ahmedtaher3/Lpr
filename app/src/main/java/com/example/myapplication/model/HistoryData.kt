@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ScanCarData(
+data class HistoryData(
 
 	@field:SerializedName("driver_id")
 	val driverId: Int? = null,
@@ -16,11 +16,14 @@ data class ScanCarData(
 	@field:SerializedName("checkout_note")
 	val checkoutNote: String? = null,
 
-	@field:SerializedName("car_request_id")
-	val carRequestId: Int? = null,
+	@field:SerializedName("last_entry")
+	val lastEntry: String? = null,
 
 	@field:SerializedName("history_id")
 	val historyId: Int? = null,
+
+	@field:SerializedName("car_request_id")
+	val carRequestId: Int? = null,
 
 	@field:SerializedName("car_plate_en")
 	val carPlateEn: String? = null,

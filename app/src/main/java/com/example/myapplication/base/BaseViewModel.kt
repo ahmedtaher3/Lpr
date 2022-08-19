@@ -73,7 +73,9 @@ abstract class BaseViewModel(private val repository: BaseRepository) : ViewModel
 
             if (response.body()?.isSuccessResponse!!) {
                 return Status.Success(response.body())
-            } else {
+            }  else  if (response.body()?.ifUnAuth!!) {
+                return Status.Unauthorized
+            }else {
                 return try {
                     Status.Error(response.code(), response.body()?.messageResponse!!)
                 } catch (e: Exception) {

@@ -109,6 +109,8 @@ fun File.getImageFilePart(name: String): MultipartBody.Part {
 
 fun String.getStringPart(): RequestBody {
     return this.toRequestBody("text/plain".toMediaType())
+
+
 }
 
 

@@ -6,9 +6,11 @@ import com.example.myapplication.base.BaseRepository
 import com.example.myapplication.base.BaseResponse
 import com.example.myapplication.data.retrofit.ApiServices
 import com.example.myapplication.data.shared.DataManager
+import com.example.myapplication.model.ConfirmScanData
 import com.example.myapplication.model.ProfileData
 import com.example.myapplication.model.ScanCarData
 import com.google.gson.JsonObject
+import okhttp3.MultipartBody
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -20,9 +22,14 @@ class ActionRepository @Inject constructor(
 
 
 
-    suspend fun getScanCarApi(json: JsonObject): Response<BaseResponse<ScanCarData>> =
-        api.scanCar(dataManager.token , json)
+    suspend fun getScanCarApi(image: MultipartBody.Part?): Response<BaseResponse<ConfirmScanData>> =
+        api.scanCar(dataManager.token , image)
 
+    suspend fun getConfirmCarApi(pStringMap: MutableMap<String, String>): Response<BaseResponse<ScanCarData>> =
+        api.confirmCar(dataManager.token , pStringMap)
+
+    suspend fun getScanQrApi(pStringMap: MutableMap<String, String>): Response<BaseResponse<ScanCarData>> =
+        api.scanQr(dataManager.token , pStringMap)
 
     suspend fun getSendActionApi(pStringMap: MutableMap<String, String>): Response<BaseResponse<BaseResponse.Data>> =
         api.sendAction(dataManager.token , pStringMap)

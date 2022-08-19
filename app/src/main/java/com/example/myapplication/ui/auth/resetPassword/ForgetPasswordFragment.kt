@@ -3,12 +3,14 @@ package com.example.myapplication.ui.auth.resetPassword
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.base.BaseResponse
 import com.example.myapplication.databinding.FragmentForgetPasswordBinding
 import com.example.myapplication.ui.auth.AuthViewModel
+import com.example.myapplication.ui.auth.LoginActivity
 import com.example.myapplication.ui.main.MainActivity
 import com.example.myapplication.util.CommonUtilities.isEmailValid
 import com.example.myapplication.util.Status
@@ -29,14 +31,14 @@ class ForgetPasswordFragment : BaseFragment<FragmentForgetPasswordBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding = viewDataBinding!!
         binding.forget.setOnClickListener {
-            if (!binding.forget.text.toString().isEmailValid()) {
+            if (!binding.email.text.toString().isEmailValid()) {
                 baseActivity.showWarningSnackbar("Email not valid")
                 return@setOnClickListener
             }
 
-            viewModel.forgetPassword(binding.forget.text.toString())
+            viewModel.forgetPassword(binding.email.text.toString())
         }
 
         setState()
@@ -60,9 +62,14 @@ class ForgetPasswordFragment : BaseFragment<FragmentForgetPasswordBinding>() {
 
 
                     baseActivity.hideDialogLoading()
-                    baseActivity.showSuccessSnackbar(response.data?.message!!)
+                    baseActivity.showSuccessSnackbar(response.message)
+                    replaceFragment(PinCodeFragment() , "ResetPasswordFragment")
 
-
+                }
+                is Status.Unauthorized ->{
+                    val intent = Intent(baseActivity, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    baseActivity.startActivity(intent)
                 }
             }
         }
@@ -71,5 +78,14 @@ class ForgetPasswordFragment : BaseFragment<FragmentForgetPasswordBinding>() {
     override fun getLayoutId(): Int {
         return R.layout.fragment_forget_password
     }
-
+    fun replaceFragment(fragment: Fragment?, tag: String?) {
+        baseActivity.supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.container,
+                fragment!!
+            )
+            .addToBackStack(tag)
+            .commit()
+    }
 }
