@@ -12,26 +12,42 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.fragments.history.HomeFragment">
 
-        <TextView
-            android:id="@+id/title"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/taps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabTextAppearance="@style/MyCustomTextAppearance" />
+
+        <ProgressBar
+            android:id="@+id/allProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/your_history"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/taps" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/history"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/history_item"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/allProgress"
+            tools:listitem="@layout/history_item" />
+
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_found"
+            android:textSize="18dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taps" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

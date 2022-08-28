@@ -40,6 +40,10 @@ fun Int?.ifNullOrZero(): Int {
     }
 }
 
+fun Int?.ifNull(): Int {
+    return this ?: 0
+}
+
 
 inline fun <reified T> String.getListFromString(): ArrayList<T> {
 

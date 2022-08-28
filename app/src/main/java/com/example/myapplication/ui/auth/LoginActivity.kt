@@ -10,6 +10,7 @@ import com.example.myapplication.databinding.ActivityLoginBinding
 import com.example.myapplication.model.UserData
 import com.example.myapplication.ui.auth.resetPassword.ResetPasswordActivity
 import com.example.myapplication.ui.main.MainActivity
+import com.example.myapplication.ui.main.fragments.setting.gates.ChangeGateActivity
 import com.example.myapplication.util.Status
 import com.example.myapplication.util.extensions.observe
 import com.example.myapplication.util.extensions.toJsonString
@@ -54,12 +55,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                     showWarningSnackbar(it.message!!)
                 }
                 is Status.Success<*> -> {
-
-
                     val response = it.data as BaseResponse<BaseResponse.Data>
                     dataManager.saveToken(response.accessToken)
                     viewModel.getProfile()
-
                 }
             }
         }
@@ -79,9 +77,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                     val response = it.data as BaseResponse<UserData>
 
                     dataManager.saveUser(response.data.toJsonString())
-                    dataManager.saveIsLogin(true)
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
+                    startActivity(Intent(this@LoginActivity, ChangeGateActivity::class.java))
                 }
                 is Status.Unauthorized ->{
                     val intent = Intent(this, LoginActivity::class.java)

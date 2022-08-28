@@ -47,27 +47,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/back" />
 
-            <TextView
-                android:id="@+id/nameHint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/driver_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image" />
-
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Ahmed Taher"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameHint" />
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,7 +84,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Visitor"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     app:layout_constraintStart_toEndOf="@+id/typeImage"
@@ -136,7 +125,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="No Permission"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     app:layout_constraintStart_toEndOf="@+id/permissionImage"
@@ -155,11 +143,12 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/carPlateLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_grey"
                 android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/carPlateArLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeLayout">
 
@@ -177,7 +166,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="A P C 1 2 4"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     app:layout_constraintStart_toEndOf="@+id/carPlateImage"
@@ -193,85 +181,43 @@
                     app:layout_constraintVertical_chainStyle="packed" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/carBrandLayout"
+                android:id="@+id/carPlateArLayout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_grey"
                 android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/carPlateLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/carPlateLayout"
-                app:layout_constraintTop_toBottomOf="@+id/typeLayout">
+                app:layout_constraintTop_toTopOf="@+id/carPlateLayout">
 
                 <ImageView
-                    android:id="@+id/carBrandImage"
+                    android:id="@+id/carPlateArImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_car_brand"
-                    app:layout_constraintBottom_toBottomOf="@+id/carBrand"
+                    android:src="@drawable/ic_license_plate"
+                    app:layout_constraintBottom_toBottomOf="@+id/carPlateAr"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/carBrandHint" />
+                    app:layout_constraintTop_toTopOf="@+id/carPlateArHint" />
 
                 <TextView
-                    android:id="@+id/carBrand"
+                    android:id="@+id/carPlateAr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="07/02/2020"
                     android:textColor="@color/black"
                     android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/carBrandImage"
-                    app:layout_constraintTop_toBottomOf="@+id/carBrandHint" />
+                    app:layout_constraintStart_toEndOf="@+id/carPlateArImage"
+                    app:layout_constraintTop_toBottomOf="@+id/carPlateArHint" />
 
                 <TextView
-                    android:id="@+id/carBrandHint"
+                    android:id="@+id/carPlateArHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/car_brand"
-                    app:layout_constraintStart_toStartOf="@+id/carBrand"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/carColorLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
-
-                <ImageView
-                    android:id="@+id/carColorImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_last_entry"
-                    app:layout_constraintBottom_toBottomOf="@+id/carDesc"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/carColorHint" />
-
-                <TextView
-                    android:id="@+id/carDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="Car Description"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/carColorImage"
-                    app:layout_constraintTop_toBottomOf="@+id/carColorHint" />
-
-                <TextView
-                    android:id="@+id/carColorHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/car_description"
-                    app:layout_constraintStart_toStartOf="@+id/carDesc"
+                    android:text="@string/car_plate"
+                    app:layout_constraintStart_toStartOf="@+id/carPlateAr"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -286,8 +232,8 @@
                 android:background="@drawable/rounded_grey"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/carColorLayout"
-                app:layout_constraintTop_toBottomOf="@+id/carPlateLayout">
+                app:layout_constraintStart_toEndOf="@+id/carBrandLayout"
+                app:layout_constraintTop_toBottomOf="@+id/carPlateArLayout">
 
                 <ImageView
                     android:id="@+id/lastEntryImage"
@@ -303,7 +249,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="07/02/2020"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     app:layout_constraintStart_toEndOf="@+id/lastEntryImage"
@@ -321,6 +266,86 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/carBrandLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/rounded_grey"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/carDescLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/carPlateArLayout">
+
+                <ImageView
+                    android:id="@+id/carBrandImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_car_brand"
+                    app:layout_constraintBottom_toBottomOf="@+id/carBrand"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/carBrandHint" />
+
+                <TextView
+                    android:id="@+id/carBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/carBrandImage"
+                    app:layout_constraintTop_toBottomOf="@+id/carBrandHint" />
+
+                <TextView
+                    android:id="@+id/carBrandHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_brand"
+                    app:layout_constraintStart_toStartOf="@+id/carBrand"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/carDescLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_grey"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carBrandLayout">
+
+                <ImageView
+                    android:id="@+id/carDescImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_last_entry"
+                    app:layout_constraintBottom_toBottomOf="@+id/carDesc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/carDescHint" />
+
+                <TextView
+                    android:id="@+id/carDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/carDescImage"
+                    app:layout_constraintTop_toBottomOf="@+id/carDescHint" />
+
+                <TextView
+                    android:id="@+id/carDescHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_description"
+                    app:layout_constraintStart_toStartOf="@+id/carDesc"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/actionsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -331,7 +356,7 @@
                 android:paddingBottom="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/carColorLayout">
+                app:layout_constraintTop_toBottomOf="@+id/carDescLayout">
 
 
                 <TextView

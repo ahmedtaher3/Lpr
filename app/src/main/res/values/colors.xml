@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#29ABE2</color>
-    <color name="inactive">#BBABE1</color>
+    <color name="inactive">#A6D6EA</color>
     <color name="grey">@color/light_color</color>
     <color name="secondary">#B1B1B1</color>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">LPR</string>
     <string name="some_thing_went_wrong_error_msg">Something went wrong, Please try again</string>
     <string name="check_internet_connection">Check your internet connection</string>
     <string name="login">Login</string>
@@ -41,6 +41,14 @@
     <string name="user_name">User Name</string>
     <string name="scan_by_camera">Scan By Camera</string>
     <string name="scan_qr_code">Scan QR Code</string>
+    <string name="reject">Reject</string>
+    <string name="choose_site">Choose Site</string>
+    <string name="choose_gate">Choose Gate</string>
+    <string name="choose_your_current_site">Choose Your Current Site</string>
+    <string name="choose_your_current_gate">Choose Your Current Gate</string>
+    <string name="confirm">Confirm</string>
+    <string name="change_gate">Change Gate</string>
+    <string name="no_data_found">No Data Found</string>
 
 
 </resources>

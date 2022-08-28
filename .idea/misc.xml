@@ -8,6 +8,7 @@
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/button_disable.xml" value="0.1515" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/button_primary.xml" value="0.1515" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/curved_tap.xml" value="0.163" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/ic_forward.xml" value="0.148" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/ic_logout.xml" value="0.163" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/ic_permission_grant.xml" value="0.161" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_border.xml" value="0.2145" />
@@ -15,8 +16,9 @@
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_grey.xml" value="0.164" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/rounded_image_action.xml" value="0.164" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/shadow_main.xml" value="0.2585" />
-        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/action_list.xml" value="0.253125" />
-        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_action.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/action_list.xml" value="0.264" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_action.xml" value="0.4" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_change_gate.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_new_visitor_camera.xml" value="0.25416666666666665" />
@@ -25,6 +27,7 @@
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_splash.xml" value="0.22407407407407406" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/confirmation_car_dialog.xml" value="0.253125" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/confirmation_dialog.xml" value="0.253125" />
+        <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/dropdown_menu_popup_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_forget_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_home.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Ahmed Taher/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_pin_code_password.xml" value="0.25416666666666665" />

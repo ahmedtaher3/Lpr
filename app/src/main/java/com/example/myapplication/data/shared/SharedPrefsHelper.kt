@@ -39,12 +39,32 @@ class SharedPrefsHelper(context: Context?) {
 
     ////////////////////////////////////////////////////////////////////////////////
 
+    fun putSite(b: String) {
+        mSharedPreferences!!.edit().putString(SITE  , b).apply()
+    }
+
+    val site: String?
+        get() =  mSharedPreferences!!.getString(SITE, "")
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+
+    fun putGate(b: String) {
+        mSharedPreferences!!.edit().putString(GATE  , b).apply()
+    }
+
+    val gate: String?
+        get() =  mSharedPreferences!!.getString(GATE, "")
+
+    ////////////////////////////////////////////////////////////////////////////////
 
 
     companion object {
 
         const val MY_PREFS = "MyApplication_PREFS"
+        const val SITE = "SITE"
         const val Token = "Token"
+        const val GATE = "GATE"
         const val IS_LOGGED = "IS_LOGGED"
         const val USER = "USER ="
     }

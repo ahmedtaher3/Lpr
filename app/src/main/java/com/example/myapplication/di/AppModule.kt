@@ -59,10 +59,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("http://104.211.166.78/visitor-lpr/public/")
+        .baseUrl("http://demo.wakeb.tech/visitor-lpr/public/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
 
 }

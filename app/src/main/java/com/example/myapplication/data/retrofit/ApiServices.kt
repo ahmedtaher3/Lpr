@@ -3,7 +3,6 @@ package com.example.myapplication.data.retrofit
 
 import com.example.myapplication.base.BaseResponse
 import com.example.myapplication.model.*
-import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -84,5 +83,24 @@ interface ApiServices {
     @GET("api/getHistory")
     suspend fun history(
         @Header("Authorization") token: String?,
+        @Query("type") type: String,
+        @Query("count") count: Int,
+        @Query("gate_id") gate_id: Int,
+        @Query("page") page: Int
     ): Response<BaseResponse<ArrayList<HistoryData>>>
+
+
+    @Headers("Accept: application/json")
+    @GET("api/sites")
+    suspend fun getSites(
+        @Header("Authorization") token: String?,
+    ): Response<BaseResponse<ArrayList<SitesData>>>
+
+
+    @Headers("Accept: application/json")
+    @GET("api/gates/{id}")
+    suspend fun getGates(
+        @Path("id") id: Int,
+        @Header("Authorization") token: String?,
+    ): Response<BaseResponse<ArrayList<GatesData>>>
 }

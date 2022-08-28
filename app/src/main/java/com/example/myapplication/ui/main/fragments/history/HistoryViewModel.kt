@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main.fragments.history
 
 
+import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.util.SingleLiveEvent
 import com.example.myapplication.util.Status
@@ -13,10 +14,11 @@ class HistoryViewModel @Inject constructor(
 ) : BaseViewModel(repository) {
 
 
+
     val historyState = SingleLiveEvent<Status>()
-    fun getHistory() {
+    fun getHistory(type: String, page: Int) {
         performNetworkCall({
-            repository.getHistoryApi()
+            repository.getHistoryApi(type, page)
         }, historyState)
     }
 

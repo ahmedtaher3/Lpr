@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.databinding.HistoryItemBinding
 import com.example.myapplication.model.HistoryData
@@ -15,6 +17,7 @@ import java.util.*
 
 
 class HistoryAdapter(
+    private val context: Context,
     private var myData: ArrayList<HistoryData>
 ) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
@@ -30,8 +33,17 @@ class HistoryAdapter(
         )
     }
 
+    fun getMyData(): ArrayList<HistoryData> {
+        return this.myData
+    }
+
     fun setMyData(myData: ArrayList<HistoryData>) {
         this.myData = myData
+        notifyDataSetChanged()
+    }
+
+    fun addData(myData: ArrayList<HistoryData>) {
+        this.myData.addAll(myData)
         notifyDataSetChanged()
     }
 
@@ -44,20 +56,26 @@ class HistoryAdapter(
 
         holder.binding.name.text = model.driverName
         holder.binding.carBrand.text = model.carBrand
-        holder.binding.carPlate.text = model.carPlateAr
+        holder.binding.carPlate.text = model.carPlateEn
         holder.binding.carDesc.text = model.carDescription
         holder.binding.type.text = model.driverType
         holder.binding.action.text = model.statusAction
-        holder.binding.lastEntry.text = model.lastEntry
+        holder.binding.lastEntry.text = model.lastEntry?.take(10)
         holder.binding.permission.text = model.historyStatus
+        holder.binding.carPlateAr.text = model.carPlateAr
 
 
-        if (model?.historyStatus == "refused")
-        {
+
+        Glide.with(context)
+            .load(model.driverPhoto)
+            .apply(RequestOptions.placeholderOf(holder.binding.image.drawable))
+            .into(holder.binding.image)
+
+
+
+        if (model?.historyStatus == "refused") {
             holder.binding.permissionImage.setImageResource(R.drawable.ic_permission_denied)
-        }
-        else
-        {
+        } else {
             holder.binding.permissionImage.setImageResource(R.drawable.ic_permission_grant)
         }
 

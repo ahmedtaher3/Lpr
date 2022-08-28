@@ -8,6 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.base.BaseResponse
@@ -18,6 +20,7 @@ import com.example.myapplication.ui.main.MainActivity
 import com.example.myapplication.util.Status
 import com.example.myapplication.util.extensions.hide
 import com.example.myapplication.util.extensions.observe
+import com.example.myapplication.util.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +30,8 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
     val viewModel: ActionViewModel by viewModels()
     var action = ""
     var model: ScanCarData? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = viewDataBinding!!
@@ -39,30 +44,36 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
 
         binding.name.text = model?.driverName
         binding.carBrand.text = model?.carBrand
-        binding.carPlate.text = model?.carPlateAr
+        binding.carDesc.text = model?.carDescription
+        binding.carPlate.text = model?.carPlateEn
         binding.type.text = model?.driverType
         binding.permission.text = model?.historyStatus
+        binding.carPlateAr.text = model?.carPlateAr
 
-        if (model?.historyStatus == "refused")
-        {
+
+        Glide.with(this)
+            .load(model?.driverPhoto)
+            .apply(RequestOptions.placeholderOf(binding.image.drawable))
+            .into(binding.image)
+
+        if (model?.historyStatus == "refused") {
+
+            binding.actionsLayout.hide()
+            binding.notes.hide()
+
+            binding.permissionImage.setImageResource(R.drawable.ic_permission_denied)
             binding.send.setBackgroundResource(R.drawable.button_disable)
             binding.send.isEnabled = false
-            binding.permissionImage.setImageResource(R.drawable.ic_permission_denied)
-        }
-        else
-        {
+        } else {
             binding.permissionImage.setImageResource(R.drawable.ic_permission_grant)
 
         }
 
 
-        if (model?.statusAction == "checkout")
-        {
+        if (model?.statusAction == "checkout") {
 
             binding.lastEntry.text = model?.checkoutDate?.take(10)
-        }
-        else  if (model?.statusAction == "checkin")
-        {
+        } else if (model?.statusAction == "checkin") {
             binding.lastEntry.text = model?.checkinDate?.take(10)
         }
 
@@ -76,25 +87,32 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
 
 
             val checkin = dialogView.findViewById<LinearLayout>(R.id.checkin)
+            val reject = dialogView.findViewById<LinearLayout>(R.id.reject)
             val checkout = dialogView.findViewById<LinearLayout>(R.id.checkout)
             val cancel = dialogView.findViewById<LinearLayout>(R.id.cancel)
 
             val alertDialog = dialogBuilder.create()
 
 
-            if (model?.statusAction == "refused")
-            {
+
+            if (model?.historyStatus == "refused") {
                 checkin.hide()
                 checkout.hide()
+                reject.visible()
+            } else {
+
+
+                if (model?.statusAction == "checkin") {
+                    checkin.hide()
+                    reject.hide()
+                } else if (model?.statusAction == "checkout") {
+                    checkout.hide()
+                }
+
             }
-            else if (model?.statusAction == "checkin")
-            {
-                checkin.hide()
-            }
-            else if (model?.statusAction == "checkout")
-            {
-                checkout.hide()
-            }
+
+
+
 
 
 
@@ -112,6 +130,14 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
                 alertDialog.dismiss()
 
             })
+            reject.setOnClickListener(View.OnClickListener {
+                action = "rejected"
+                binding.action.text = action
+
+                alertDialog.dismiss()
+
+            })
+
             cancel.setOnClickListener(
                 View.OnClickListener { alertDialog?.dismiss() }
             )
@@ -192,7 +218,7 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
 
 
                 }
-                is Status.Unauthorized ->{
+                is Status.Unauthorized -> {
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)

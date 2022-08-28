@@ -1,5 +1,6 @@
 package com.example.myapplication.base
 
+import com.example.myapplication.model.MetaModel
 import com.example.myapplication.util.extensions.ifNullOrZero
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -16,6 +17,10 @@ data class BaseResponse<T>(
     @SerializedName("data")
     @Expose
     var data: T? = null,
+
+    @SerializedName("meta")
+    @Expose
+    var meta: MetaModel? = null,
 
     @SerializedName("access_token")
     @Expose

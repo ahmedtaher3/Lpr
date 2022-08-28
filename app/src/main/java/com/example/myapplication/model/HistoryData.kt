@@ -58,6 +58,10 @@ data class HistoryData(
 	@field:SerializedName("history_status")
 	val historyStatus: String? = null,
 
+
+	@field:SerializedName("driver_photo")
+	val driverPhoto: String? = null,
+
 	@field:SerializedName("checkin_note")
 	val checkinNote: String? = null
 ) : Parcelable
