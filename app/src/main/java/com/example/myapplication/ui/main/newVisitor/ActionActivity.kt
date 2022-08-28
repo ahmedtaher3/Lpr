@@ -105,7 +105,7 @@ class ActionActivity : BaseActivity<ActivityActionBinding>() {
                 if (model?.statusAction == "checkin") {
                     checkin.hide()
                     reject.hide()
-                } else if (model?.statusAction == "checkout") {
+                } else  {
                     checkout.hide()
                 }
 
