@@ -22,6 +22,7 @@ import com.example.myapplication.databinding.ActivityNewVisitorCameraBinding
 import com.example.myapplication.model.ConfirmScanData
 import com.example.myapplication.model.ScanCarData
 import com.example.myapplication.ui.auth.LoginActivity
+import com.example.myapplication.util.OtpEditText
 import com.example.myapplication.util.Status
 import com.example.myapplication.util.extensions.observe
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -138,8 +139,8 @@ class NewVisitorCameraActivity : BaseActivity<ActivityNewVisitorCameraBinding>()
                         layoutInflater.inflate(R.layout.confirmation_car_dialog, null)
                     dialogBuilder.setView(dialogView)
 
-                    val palteEn = dialogView.findViewById<EditText>(R.id.palteEn)
-                    val palteAr = dialogView.findViewById<EditText>(R.id.palteAr)
+                    val palteEn = dialogView.findViewById<OtpEditText>(R.id.palteEn)
+                    val palteAr = dialogView.findViewById<OtpEditText>(R.id.palteAr)
                     val done = dialogView.findViewById<AppCompatButton>(R.id.done)
                     val cancel = dialogView.findViewById<AppCompatButton>(R.id.cancel)
 

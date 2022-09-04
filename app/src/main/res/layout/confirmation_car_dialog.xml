@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
@@ -27,52 +28,62 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/palteEnLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <TextView
+            android:id="@+id/ar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:hint="Car Plate (English)"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text=" Car Plate (english)"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title">
-
-            <EditText
-                android:id="@+id/palteEn"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="30dp"
-                android:textSize="24dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/palteArLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <com.example.myapplication.util.OtpEditText
+            android:id="@+id/palteEn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:hint="رقم السيارة (عربى)"
+            android:inputType="text"
+            android:maxLength="6"
+            android:gravity="left"
+            android:textAlignment="gravity"
+            android:textIsSelectable="false"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/palteEnLayout">
+            app:layout_constraintTop_toBottomOf="@+id/ar" />
 
-            <EditText
-                android:id="@+id/palteAr"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="30dp"
+        <com.example.myapplication.util.OtpEditText
+            android:id="@+id/palteAr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:gravity="left"
+            android:textAlignment="gravity"
+            android:maxLength="6"
+            android:textIsSelectable="false"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/en"/>
 
-                android:textSize="24dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:text="رقم السيارة (عربى)"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/palteEn" />
+
+
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -88,7 +99,7 @@
             app:layout_constraintEnd_toStartOf="@+id/done"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/palteArLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/palteAr" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/done"
@@ -102,7 +113,7 @@
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cancel"
-            app:layout_constraintTop_toBottomOf="@+id/palteArLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/palteAr" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
